@@ -1,0 +1,23 @@
+{
+  "name": "node-grunt-app",
+  "version": "1.0.0",
+  "description": "Node Grunt Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedsamara/node-grunt-app.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Mohamed Samara (https://github.com/mohamedsamara)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohamedsamara/node-grunt-app/issues"
+  },
+  "homepage": "https://github.com/mohamedsamara/node-grunt-app#readme"
+}
