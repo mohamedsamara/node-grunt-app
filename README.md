@@ -1,10 +1,5 @@
 # Node Grunt App
 
-* features:   
-  * Node provides the backend environment for this application
-  * Express middleware is used to handle requests, routes
-
-        
 ## Install   
 
 Some basic Git commands are:
@@ -21,4 +16,6 @@ $ npm install
 - [Node](https://nodejs.org/en/)
 
 - [Express](https://expressjs.com/)
+
+- [Grunt](https://gruntjs.com/)
 
