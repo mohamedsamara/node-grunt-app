@@ -3,7 +3,7 @@ import * as http from 'http';
 class Server {
   public static server: http.Server;
 
-  public static PORT: number = Number(process.env.PORT) || 3000;
+  public static PORT: number = Number(process.env.PORT) || 8080;
 
   public static start(app: any): void {
     this.server = http.createServer(app);

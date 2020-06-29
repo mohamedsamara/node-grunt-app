@@ -2,6 +2,8 @@ import * as path from 'path';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 
+import BaseRoute from './routes';
+
 class App {
   public app: express.Application;
 
@@ -14,7 +16,7 @@ class App {
 
     this.config();
 
-    this.api();
+    this.routes();
   }
 
   public config() {
@@ -44,7 +46,9 @@ class App {
     );
   }
 
-  public api() {}
+  private routes(): void {
+    this.app.use(BaseRoute.path, BaseRoute.router);
+  }
 }
 
 export default App;
