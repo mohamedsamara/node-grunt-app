@@ -14,7 +14,6 @@ module.exports = grunt => {
         ]
       }
     },
-
     pug: {
       compile: {
         options: {
@@ -27,9 +26,8 @@ module.exports = grunt => {
           {
             src: '**/*.pug',
             cwd: 'src/views',
-            dest: 'dist',
-            expand: true,
-            ext: '.html'
+            dest: 'dist/views',
+            expand: true
           }
         ]
       }
@@ -60,12 +58,24 @@ module.exports = grunt => {
         ]
       }
     },
+    concat: {
+      dist: {
+        src: 'src/**/*.js',
+        dest: 'dist/**/*.min.js'
+      }
+    },
+    uglify: {
+      dist: {
+        src: 'src/**/*.js',
+        dest: 'dist/**/*.min.js'
+      }
+    },
     ts: {
       app: {
         files: [
           {
             src: ['src/**/*.ts', '!node_modules/**/*.ts'],
-            dest: './dist'
+            dest: 'dist'
           }
         ],
         options: {
@@ -74,24 +84,6 @@ module.exports = grunt => {
           sourceMap: false,
           rootDir: 'src'
         }
-      }
-    },
-    watch: {
-      ts: {
-        files: ['src/**/*.ts'],
-        tasks: ['ts']
-      },
-      pug: {
-        files: ['src/views/**/*.pug'],
-        tasks: ['pug']
-      },
-      sass: {
-        files: ['src/sass/**/*.sass'],
-        tasks: ['sass']
-      },
-      copy: {
-        files: ['src/libraries/**', 'src/public/**'],
-        tasks: ['copy']
       }
     }
   });
@@ -103,11 +95,6 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  if (process.env.NODE_ENV === 'production') {
-    grunt.registerTask('default', ['ts', 'pug', 'sass', 'copy', 'cssmin']);
-  } else {
-    grunt.registerTask('default', ['ts', 'pug', 'sass', 'copy', 'watch']);
-  }
+  grunt.registerTask('default', ['ts', 'pug', 'sass', 'copy', 'cssmin']);
 };
