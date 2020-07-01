@@ -8,6 +8,7 @@
 # misc
 package-lock.json
 .DS_Store
+.tscache
 
 # config file
 .vscode
