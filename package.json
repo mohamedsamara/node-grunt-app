@@ -4,8 +4,10 @@
   "description": "Node Grunt Application",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development ts-node src/index.ts",
-    "grunt": "grunt",
+    "start": "npm run build:dev",
+    "build:dev": "npm run clean && grunt && cd dist && node index.js",
+    "build:prod": "npm run clean && cross-env NODE_ENV=production grunt",
+    "clean": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -37,9 +39,13 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-pug": "^2.0.0",
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-ts": "^6.0.0-beta.22",
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.9",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5"
   }

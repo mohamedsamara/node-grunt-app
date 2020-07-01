@@ -1,0 +1,59 @@
+// sass variables
+
+// Theme colors
+$theme-green: #00acac;
+$theme-gray: #f1f1f1;
+$theme-light-gray: #f1f1f1;
+$theme-dark-gray: #cccccc;
+$theme-blue: #145086;
+$theme-purple: #727cb6;
+$theme-white: #f6f7f8;
+$theme-light-white: #f0f0f0;
+$theme-light-blue-white: #e8f0fe;
+
+$theme-black: #323232;
+$theme-orange: #e4853f;
+$theme-yellow: #ffdd57;
+$theme-light-yellow: #fbeeca;
+$theme-pink: #ff3860;
+$theme-light-blue: #4a68aa;
+$theme-bright-red: #fb0000;
+
+// standard colors
+$blue: #20a8d8;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #ff5454;
+$white: #fff;
+$orange: #fabb3d;
+$yellow: #ffc107 !default;
+$green: #79c447;
+$gray: #808081;
+$teal: #20c997 !default;
+$cyan: #67c2ef;
+$black: #000;
+
+$font-family: 'Raleway', sans-serif;
+$font-family-heading: 'Raleway', sans-serif;
+$font-family-body: 'Raleway', sans-serif;
+$font-size-x-small: 12px;
+$font-size-small: 13px;
+$font-size-medium: 14px;
+$font-size-large: 15px;
+$font-size-x-large: 16px;
+$font-size-xx-large: 18px;
+$font-size-huge: 20px;
+$font-size-x-huge: 24px;
+$font-size-heading-small: 16px;
+$font-size-heading-medium: 18px;
+$font-size-heading-large: 20px;
+$font-size-heading-x-large: 24px;
+$font-weight-normal: normal;
+$font-weight-bold-one: 500;
+$font-weight-bold-two: 600;
+$font-weight-bold-three: 700;
+
+body {
+  background-color: $red;
+}
