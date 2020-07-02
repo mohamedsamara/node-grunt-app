@@ -9,7 +9,7 @@ module.exports = grunt => {
             expand: true,
             cwd: 'src/public',
             src: ['**'],
-            dest: 'dist'
+            dest: 'dist/public'
           }
         ]
       }
@@ -38,7 +38,7 @@ module.exports = grunt => {
           {
             src: '**/*.scss',
             cwd: 'src/sass',
-            dest: 'dist/css',
+            dest: 'dist/public/css',
             expand: true,
             ext: '.css'
           }
@@ -50,9 +50,9 @@ module.exports = grunt => {
         files: [
           {
             expand: true,
-            cwd: 'dist/css',
+            cwd: 'dist/public/css',
             src: ['*.css', '!*.min.css'],
-            dest: 'dist/css',
+            dest: 'dist/public/css',
             ext: '.css'
           }
         ]
@@ -73,6 +73,43 @@ module.exports = grunt => {
           rootDir: 'src'
         }
       }
+    },
+    nodemon: {
+      dev: {
+        script: 'dist/index.js'
+      },
+      options: {
+        ignore: ['node_modules/**', 'gruntfile.js'],
+        env: {
+          PORT: '8080'
+        }
+      }
+    },
+    concurrent: {
+      watchers: {
+        tasks: ['nodemon', 'watch'],
+        options: {
+          logConcurrentOutput: true
+        }
+      }
+    },
+    watch: {
+      ts: {
+        files: ['src/**/*.ts'],
+        tasks: ['ts']
+      },
+      pug: {
+        files: ['src/**/*.pug'],
+        tasks: ['pug']
+      },
+      sass: {
+        files: ['src/sass/**/*.sass'],
+        tasks: ['sass']
+      },
+      copy: {
+        files: ['src/public/**'],
+        tasks: ['copy']
+      }
     }
   });
 
@@ -81,6 +118,19 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-concurrent');
 
-  grunt.registerTask('default', ['ts', 'pug', 'sass', 'cssmin', 'copy']);
+  if (process.env.NODE_ENV == 'production') {
+    grunt.registerTask('default', ['ts', 'pug', 'sass', 'copy', 'cssmin']);
+  } else {
+    grunt.registerTask('default', [
+      'ts',
+      'pug',
+      'sass',
+      'copy',
+      'concurrent:watchers'
+    ]);
+  }
 };
