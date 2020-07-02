@@ -58,18 +58,6 @@ module.exports = grunt => {
         ]
       }
     },
-    concat: {
-      dist: {
-        src: 'src/**/*.js',
-        dest: 'dist/**/*.min.js'
-      }
-    },
-    uglify: {
-      dist: {
-        src: 'src/**/*.js',
-        dest: 'dist/**/*.min.js'
-      }
-    },
     ts: {
       app: {
         files: [
@@ -93,8 +81,6 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
 
-  grunt.registerTask('default', ['ts', 'pug', 'sass', 'copy', 'cssmin']);
+  grunt.registerTask('default', ['ts', 'pug', 'sass', 'cssmin', 'copy']);
 };
