@@ -10,24 +10,12 @@ module.exports = grunt => {
             cwd: 'src/public',
             src: ['**'],
             dest: 'dist/public'
-          }
-        ]
-      }
-    },
-    pug: {
-      compile: {
-        options: {
-          data: {
-            debug: true
           },
-          pretty: true
-        },
-        files: [
           {
-            src: '**/*.pug',
+            expand: true,
             cwd: 'src/views',
-            dest: 'dist/views',
-            expand: true
+            src: ['**'],
+            dest: 'dist/views'
           }
         ]
       }
@@ -36,10 +24,10 @@ module.exports = grunt => {
       dist: {
         files: [
           {
-            src: '**/*.scss',
-            cwd: 'src/sass',
-            dest: 'dist/public/css',
             expand: true,
+            cwd: 'src/sass',
+            src: '**/*.scss',
+            dest: 'dist/public/css',
             ext: '.css'
           }
         ]
@@ -98,16 +86,12 @@ module.exports = grunt => {
         files: ['src/**/*.ts'],
         tasks: ['ts']
       },
-      pug: {
-        files: ['src/**/*.pug'],
-        tasks: ['pug']
-      },
       sass: {
-        files: ['src/sass/**/*.sass'],
+        files: ['src/sass/**/*.scss'],
         tasks: ['sass']
       },
-      copy: {
-        files: ['src/public/**'],
+      views: {
+        files: ['src/views/**/*.pug'],
         tasks: ['copy']
       }
     }
@@ -116,18 +100,16 @@ module.exports = grunt => {
   grunt.loadNpmTasks('grunt-ts');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
 
   if (process.env.NODE_ENV == 'production') {
-    grunt.registerTask('default', ['ts', 'pug', 'sass', 'copy', 'cssmin']);
+    grunt.registerTask('default', ['ts', 'sass', 'copy', 'cssmin']);
   } else {
     grunt.registerTask('default', [
       'ts',
-      'pug',
       'sass',
       'copy',
       'concurrent:watchers'

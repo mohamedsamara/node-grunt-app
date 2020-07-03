@@ -20,11 +20,6 @@ class App {
   }
 
   public config() {
-    this.app.use(express.static(path.join(__dirname, 'public')));
-
-    this.app.set('views', path.join(__dirname, 'views'));
-    this.app.set('view engine', 'pug');
-
     this.app.use(bodyParser.json());
 
     this.app.use(
@@ -32,6 +27,11 @@ class App {
         extended: true
       })
     );
+
+    this.app.use(express.static(path.join(__dirname, 'public')));
+
+    this.app.set('views', path.join(__dirname, 'views'));
+    this.app.set('view engine', 'pug');
 
     this.app.use(
       (

@@ -1,4 +1,7 @@
 extends layout
 
 block content
-        h1 Notes Page
+        h6 Project Technologies & Tools 
+        ul.list-group.list-group-flush
+                each note, i in notes
+                        li.list-group-item= note.title

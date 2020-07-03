@@ -7,21 +7,23 @@ html(lang='en')
         title Node Grunt Application
         link(rel='icon', type='image/png', href='/favicon.ico')
         link(href='/css/style.css' rel='stylesheet')
+        link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
 
     body
-        nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light
             .container
-                a.navbar-brand(href='/') Notes Application
-                button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                a.navbar-brand(href='/') Node Grunt Application
+                button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
                     span.navbar-toggler-icon
-                #navbarResponsive.collapse.navbar-collapse
-                    ul.navbar-nav.ml-auto
-                        li.nav-item.active
-                            a.nav-link(href='/')
-                                | Home
-                                span.sr-only (current)
-                        li.nav-item
-                            a.nav-link(href='/notes') Notes
+                #navbarNavAltMarkup.collapse.navbar-collapse
+                    .navbar-nav
+                    a.nav-item.nav-link.active(href='/')
+                        | Home 
+                        span.sr-only (current)
+                    a.nav-item.nav-link(href='/notes') Notes
+
         .wrapper
             .container
                 block content 
