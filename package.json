@@ -16,8 +16,10 @@
   "keywords": [
     "node",
     "express",
-    "typescript",
-    "grunt"
+    "grunt",
+    "sass",
+    "pug",
+    "typescript"
   ],
   "author": "Mohamed Samara (https://github.com/mohamedsamara)",
   "license": "MIT",

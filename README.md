@@ -19,3 +19,9 @@ $ npm install
 
 - [Grunt](https://gruntjs.com/)
 
+- [Sass](https://sass-lang.com/)
+
+- [Pug](https://pugjs.org/api/getting-started.html)
+
+- [TypeScript](https://www.typescriptlang.org/)
+
