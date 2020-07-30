@@ -1,6 +1,6 @@
 # Node Grunt App
 
-## Install   
+## Install
 
 Some basic Git commands are:
 
@@ -8,7 +8,6 @@ Some basic Git commands are:
 $ git clone https://github.com/mohamedsamara/node-grunt-app.git
 $ cd project
 $ npm install
-
 ```
 
 ## Languages & tools
@@ -24,4 +23,3 @@ $ npm install
 - [Pug](https://pugjs.org/api/getting-started.html)
 
 - [TypeScript](https://www.typescriptlang.org/)
-
